@@ -1,1 +1,1 @@
-# longQueryKiller
+AWS Aurora database long query killer

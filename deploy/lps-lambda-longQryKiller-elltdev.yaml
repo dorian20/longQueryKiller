@@ -1,0 +1,42 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Serverless Specification template describing your function.
+Resources:
+  lpslambdalongQryKiller:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: .
+      Description: ''
+      MemorySize: 128
+      Timeout: 50
+      Role: 'arn:aws:iam::515303172277:role/LambdaExecute'
+      Events:
+        Schedule1:
+          Type: Schedule
+          Properties:
+            Schedule: rate(1 minute)
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-a59217ce
+        SubnetIds:
+          - subnet-78f26610
+          - subnet-5466a318
+      Environment:
+        Variables:
+          ES_REGION: ap-northeast-2
+          ES_ENDPOINT: >-
+            https://search-es-ltcm-ellt-dev-wwcvewmulz27r3obykatmc2zcy.ap-northeast-2.es.amazonaws.com
+          HOST: >-
+            elltdev.cbue0iqm0djc.ap-northeast-2.rds.amazonaws.com,elltdev.cbue0iqm0djc.ap-northeast-2.rds.amazonaws.com
+          USER: b2_dba
+          DEBUG_LOG: 'true'
+          DATABASE: information_schema
+          PASSWORD: qwer1234
+          LIMIT: '3'
+          TARGETUSER: >-
+            {"elltdev.cbue0iqm0djc.ap-northeast-2.rds.amazonaws.com":["stuser",
+            "testUser",
+            "b2_dba"],"elltdev.cbue0iqm0djc.ap-northeast-2.rds.amazonaws.com":["stuser",
+            "testUser", "b2_dba"]}

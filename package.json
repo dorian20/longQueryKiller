@@ -1,0 +1,23 @@
+{
+  "name": "lps-lambda-longquerykiller",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git-codecommit.ap-northeast-1.amazonaws.com/v1/repos/lps-lambda-longQueryKiller"
+  },
+  "author": "@nadir93",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.22.2",
+    "mysql": "^2.16.0"
+  }
+}
